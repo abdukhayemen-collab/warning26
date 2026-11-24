@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#05070a">
+  <meta name="description" content="عرض توعوي تفاعلي عن مخاطر الروابط المشبوهة والتصيد الاحتيالي: ضغطة واحدة قد تكلّفك الكثير. محاكاة توعوية لا تفحص جهازك ولا تجمع بياناتك.">
+  <meta property="og:title" content="ضغطة واحدة قد تكلّفك الكثير — عرض توعوي تفاعلي">
+  <meta property="og:description" content="محاكاة سينمائية قصيرة، ثم محتوى توعوي وألعاب تفاعلية عن الروابط المشبوهة والتصيد الاحتيالي.">
+  <meta property="og:type" content="website">
+  <title>ضغطة واحدة قد تكلّفك الكثير | عرض توعوي تفاعلي</title>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts/fonts-embedded.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-mood="threat" class="intro-active">
+
+  <a class="skip-link" href="#deck">تخطَّ إلى محتوى العرض</a>
+
+  <div class="bg-layers" aria-hidden="true">
+    <div class="bg-layer bg-layer--threat"></div>
+    <div class="bg-layer bg-layer--calm"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-scan"></div>
+    <div class="bg-noise"></div>
+    <div class="bg-glow" id="bgGlow"></div>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg class="ico"><use href="#i-shield-check"></use></svg>
+      </span>
+      <span class="brand__text">
+        <strong>ضغطة واحدة</strong>
+        <small>محاكاة توعوية تفاعلية</small>
+      </span>
+    </div>
+
+    <div class="topbar__chapter" aria-live="polite">
+      <span class="live-dot" aria-hidden="true"></span>
+      <span id="chapterLabel">المقدمة</span>
+    </div>
+
+    <div class="topbar__actions">
+      <button class="soundbtn" id="soundToggle" type="button" aria-pressed="true" aria-label="كتم المؤثرات الصوتية" title="كتم الصوت">
+        <svg class="ico" aria-hidden="true"><use href="#i-volume"></use></svg>
+        <span class="soundbtn__label">الصوت مفعّل</span>
+      </button>
+      <span class="topbar__divider" aria-hidden="true"></span>
+      <button class="iconbtn" id="helpBtn" type="button" aria-label="كيفية استخدام العرض" title="مساعدة (؟)">
+        <svg class="ico" aria-hidden="true"><use href="#i-help"></use></svg>
+      </button>
+      <button class="iconbtn" id="fullscreenBtn" type="button" aria-label="ملء الشاشة" title="ملء الشاشة (F)">
+        <svg class="ico" aria-hidden="true"><use href="#i-expand"></use></svg>
+      </button>
+      <button class="iconbtn" id="restartBtn" type="button" aria-label="إعادة العرض من البداية" title="إعادة العرض (R)">
+        <svg class="ico" aria-hidden="true"><use href="#i-refresh"></use></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="deck" id="deck" aria-label="عرض توعوي عن الروابط المشبوهة">
+
+    <section class="slide slide--cover is-active" id="slide-0" data-chapter="المقدمة" data-title="ضغطة واحدة قد تكلّفك الكثير" aria-hidden="false" tabindex="-1">
+      <div class="slide__inner">
+        <div class="cover">
+          <div class="cover__copy">
+            <div class="badge anim" style="--d:.05s">
+              <span class="badge__dot" aria-hidden="true"></span>
+              حملة توعية رقمية · تجربة تفاعلية
+            </div>
+
+            <h1 class="cover__title anim" style="--d:.12s" aria-label="ضغطة واحدة قد تكلّفك الكثير">
+              ضغطة واحدة<br>
+              <span class="hl">قد تكلّفك الكثير</span>
+            </h1>
+
+            <p class="cover__lead anim" style="--d:.2s">
+              كل يوم تصلنا روابط تحمل وعودًا أو تهديدات. بعضها بريء، وبعضها صُمّم بذكاء ليُوقعك في الفخ.
+              في الدقائق القادمة، سنتعلّم كيف نقرأ الرابط قبل أن نضغط.
+            </p>
+
+            <div class="cover__actions anim" style="--d:.28s">
+              <button class="btn btn--primary" type="button" data-next>
+                ابدأ العرض
+                <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+              </button>
+              <button class="btn btn--ghost" type="button" data-quiz>
+                <svg class="ico" aria-hidden="true"><use href="#i-grid"></use></svg>
+                اختبر نفسك
+              </button>
+              <button class="linkbtn" type="button" data-replay>
+                <svg class="ico" aria-hidden="true"><use href="#i-refresh"></use></svg>
+                أعد التجربة
+              </button>
+            </div>
+
+            <dl class="stats anim" style="--d:.36s">
+              <div>
+                <dt>3</dt>
+                <dd>رسائل تفاعلية</dd>
+              </div>
+              <div>
+                <dt>5</dt>
+                <dd>علامات تحذير</dd>
+              </div>
+              <div>
+                <dt>5</dt>
+                <dd>خطوات للحماية</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero-visual anim" style="--d:.3s" aria-hidden="true">
+            <div class="hero-visual__ring"></div>
+            <div class="phone">
+              <span class="phone__notch"></span>
+              <div class="phone__status">
+                <span>٩:٤١</span>
+                <span class="phone__signal"><i></i><i></i><i></i></span>
+              </div>
+              <div class="phone__app">
+                <div class="phone__alert">
+                  <svg class="ico"><use href="#i-alert"></use></svg>
+                  <span>تنبيه أمني</span>
+                  <span class="phone__now">الآن</span>
+                </div>
+                <div class="msgpop">
+                  <div class="msgpop__top">
+                    <span class="msgpop__avatar">؟</span>
+                    <div class="msgpop__who">
+                      <strong>جهة غير معروفة</strong>
+                      <small dir="ltr">security@account-verify.example.test</small>
+                    </div>
+                  </div>
+                  <p class="msgpop__subject">سيُغلق حسابك خلال 24 ساعة</p>
+                  <p class="msgpop__body">لاحظنا نشاطًا غير معتاد. أكّد هويتك الآن لتجنّب الإغلاق.</p>
+                  <span class="msgpop__url" dir="ltr">secure-login.example.test/verify</span>
+                  <span class="msgpop__cta">
+                    <svg class="ico"><use href="#i-cursor"></use></svg>
+                    اضغط للتحقق
+                  </span>
+                </div>
+                <div class="phone__warn">
+                  <svg class="ico"><use href="#i-alert"></use></svg>
+                  مثال خيالي — لا تضغط
+                </div>
+              </div>
+            </div>
+            <span class="float-tag float-tag--urgent">
+              <svg class="ico"><use href="#i-clock"></use></svg>
+              24 ساعة
+            </span>
+            <span class="float-tag float-tag--risk">نطاق مشبوه</span>
+          </div>
+        </div>
+
+        <div class="cover__hint anim" style="--d:.5s">
+          <span><kbd>←</kbd> للانتقال</span>
+          <span><kbd>F</kbd> لملء الشاشة</span>
+          <span><kbd>M</kbd> للصوت</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-1" data-chapter="الفهم" data-title="ما الرابط المشبوه وكيف يبدأ التصيد؟" aria-hidden="true" inert tabindex="-1">
+      <div class="slide__inner">
+        <header class="slide-head">
+          <div class="kicker anim" style="--d:.04s"><span>01</span> الفهم</div>
+          <h2 class="anim" style="--d:.09s">ما الرابط المشبوه؟<span class="dim"> وكيف يبدأ التصيد؟</span></h2>
+          <p class="lead anim" style="--d:.14s">
+            الرابط المشبوه هو رابط يصل غالبًا من مصدر غير موثوق، ويحاول دفعك للضغط عبر الخوف أو الإغراء أو الفضول.
+            وقد يقود إلى صفحة مقلّدة، أو ملف ضار، أو طلب بيانات لا علاقة له بالجهة التي ينتحلها.
+          </p>
+        </header>
+
+        <div class="split">
+          <ol class="chain">
+            <li class="chain__item anim" style="--d:.18s">
+              <span class="chain__num">1</span>
+              <span class="chain__icon"><svg class="ico" aria-hidden="true"><use href="#i-mail"></use></svg></span>
+              <div>
+                <h3>الاستدراج</h3>
+                <p>رسالة تنتحل صفة بنك أو شركة أو زميل، وتستغل الخوف أو الثقة أو العرض المغرِي.</p>
+              </div>
+            </li>
+            <li class="chain__item anim" style="--d:.24s">
+              <span class="chain__num">2</span>
+              <span class="chain__icon"><svg class="ico" aria-hidden="true"><use href="#i-link"></use></svg></span>
+              <div>
+                <h3>الطُّعم</h3>
+                <p>رابط أو مرفق يبدو منطقيًا، لكنه يقود إلى صفحة أو ملف تحت سيطرة المحتال.</p>
+              </div>
+            </li>
+            <li class="chain__item anim" style="--d:.3s">
+              <span class="chain__num">3</span>
+              <span class="chain__icon"><svg class="ico" aria-hidden="true"><use href="#i-key"></use></svg></span>
+              <div>
+                <h3>الفخ</h3>
+                <p>صفحة دخول مقلّدة، أو طلب دفع، أو رمز تحقق، أو تنزيل برنامج لا تحتاجه.</p>
+              </div>
+            </li>
+            <li class="chain__item anim" style="--d:.36s">
+              <span class="chain__num">4</span>
+              <span class="chain__icon"><svg class="ico" aria-hidden="true"><use href="#i-user-x"></use></svg></span>
+              <div>
+                <h3>الاستغلال</h3>
+                <p>استخدام ما أدخلته أو نزّلته للوصول إلى حساباتك أو أموالك أو بيانات من تعرف.</p>
+              </div>
+            </li>
+          </ol>
+
+          <aside class="panel panel--why anim" style="--d:.28s">
+            <div class="panel__label">الوقود النفسي</div>
+            <h3>لماذا نضغط أصلًا؟</h3>
+            <div class="chips">
+              <span class="chip">الخوف</span>
+              <span class="chip">الاستعجال</span>
+              <span class="chip">الثقة</span>
+              <span class="chip">الإغراء</span>
+              <span class="chip">الفضول</span>
+            </div>
+            <p>المحتالون لا يحتاجون إلى كسر الباب دائمًا؛ أحيانًا يكتفون بإقناعك أن تفتحه بنفسك.</p>
+            <div class="panel__foot">
+              <svg class="ico" aria-hidden="true"><use href="#i-eye"></use></svg>
+              التصيد يستهدف قرارك، لا جهازك فقط.
+            </div>
+          </aside>
+        </div>
+
+        <div class="callout anim" style="--d:.42s">
+          <svg class="ico" aria-hidden="true"><use href="#i-alert"></use></svg>
+          <p><strong>الرابط المشبوه ليس بالضرورة «مخترقًا».</strong> غالبًا هو رابط عادي يقود إلى صفحة صمّمها المحتال لتشبه جهة تثق بها. التصيد الاحتيالي هو انتحال صفة جهة موثوقة لدفعك إلى كشف معلومات أو تنفيذ إجراء.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-2" data-chapter="المخاطر" data-title="ماذا قد يحدث عند فتح رابط خبيث؟" aria-hidden="true" inert tabindex="-1">
+      <div class="slide__inner">
+        <header class="slide-head">
+          <div class="kicker anim" style="--d:.04s"><span>02</span> المخاطر</div>
+          <h2 class="anim" style="--d:.09s">ماذا قد يحدث عند فتح رابط خبيث؟</h2>
+          <p class="lead anim" style="--d:.14s">
+            ليست كل الروابط خطرة، وليست كل صفحة تسرق شيئًا. لكن هذه هي المخاطر الأكثر شيوعًا التي تبدأ من ضغطة واحدة.
+          </p>
+        </header>
+
+        <div class="risk-grid">
+          <article class="risk-card anim" style="--d:.18s">
+            <div class="risk-card__top">
+              <span class="risk-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-key"></use></svg></span>
+              <span class="risk-card__num">01</span>
+            </div>
+            <h3>سرقة كلمات المرور</h3>
+            <p>صفحة دخول مقلّدة تبدو كموقعك المعتاد وتحفظ ما تكتبه. وقد يعيد المحتال استخدام البريد وكلمة المرور على حسابات أخرى.</p>
+          </article>
+
+          <article class="risk-card anim" style="--d:.24s">
+            <div class="risk-card__top">
+              <span class="risk-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-card"></use></svg></span>
+              <span class="risk-card__num">02</span>
+            </div>
+            <h3>سرقة البيانات الشخصية والمالية</h3>
+            <p>طلب بطاقة أو رقم هوية أو عنوان أو رمز تحقق لمرة واحدة، ثم استغلالها في عمليات احتيال أو سرقة هوية.</p>
+          </article>
+
+          <article class="risk-card anim" style="--d:.3s">
+            <div class="risk-card__top">
+              <span class="risk-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-download"></use></svg></span>
+              <span class="risk-card__num">03</span>
+            </div>
+            <h3>برمجيات ضارة</h3>
+            <p>ملف أو تحديث مزيف قد يثبّت برامج تجسس أو إعلانات مزعجة أو فدية تشفّر ملفاتك وتطلب فدية.</p>
+          </article>
+
+          <article class="risk-card anim" style="--d:.36s">
+            <div class="risk-card__top">
+              <span class="risk-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-monitor"></use></svg></span>
+              <span class="risk-card__num">04</span>
+            </div>
+            <h3>صفحات مزيفة وانتحال هوية</h3>
+            <p>متاجر وهمية، فواتير مزيفة، أو انتحال حسابات أصدقائك لإرسال روابط جديدة من داخل شبكة ثقتك.</p>
+          </article>
+        </div>
+
+        <div class="callout callout--warn anim" style="--d:.42s">
+          <svg class="ico" aria-hidden="true"><use href="#i-shield-check"></use></svg>
+          <div>
+            <strong>مهم: مجرد فتح الرابط لا يعني أن جهازك اختُرق تلقائيًا.</strong>
+            <p>قد يبدأ الخطر فعليًا عند إدخال بيانات، أو تنزيل ملف وتشغيله، أو منح أذونات. إذا فتحت رابطًا مشبوهًا: أغلق الصفحة فورًا، ولا تتفاعل معها.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-3" data-chapter="العلامات" data-title="علامات الرابط المشبوه" aria-hidden="true" inert tabindex="-1">
+      <div class="slide__inner">
+        <header class="slide-head">
+          <div class="kicker anim" style="--d:.04s"><span>03</span> التعرّف</div>
+          <h2 class="anim" style="--d:.09s">علامات تدقّ جرس الإنذار</h2>
+          <p class="lead anim" style="--d:.14s">
+            لا تحكم على الرسالة من شعارها، ولا على الرابط من أول كلمة فيه. ابحث عن هذه الإشارات قبل أن تضغط.
+          </p>
+        </header>
+
+        <div class="split split--signs">
+          <ul class="signs">
+            <li class="sign anim" style="--d:.18s">
+              <span class="sign__icon"><svg class="ico" aria-hidden="true"><use href="#i-user-x"></use></svg></span>
+              <div>
+                <h3>مرسل مجهول أو نطاق غريب</h3>
+                <p>اسم الجهة المعروض يمكن انتحاله بسهولة. تحقّق من عنوان البريد الكامل أو رقم المرسل، لا من الاسم فقط.</p>
+              </div>
+            </li>
+            <li class="sign anim" style="--d:.23s">
+              <span class="sign__icon"><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg></span>
+              <div>
+                <h3>استعجال وتهديد</h3>
+                <p>«خلال 24 ساعة» و«سيُغلق حسابك» أسلوب ضغط نفسي يمنعك من التفكير والتحقق.</p>
+              </div>
+            </li>
+            <li class="sign anim" style="--d:.28s">
+              <span class="sign__icon"><svg class="ico" aria-hidden="true"><use href="#i-spark"></use></svg></span>
+              <div>
+                <h3>جوائز وعروض غير متوقعة</h3>
+                <p>جائزة لم تشارك في سحبها، أو عرض يطلب بياناتك أو رسومًا للحصول عليها.</p>
+              </div>
+            </li>
+            <li class="sign anim" style="--d:.33s">
+              <span class="sign__icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"></use></svg></span>
+              <div>
+                <h3>نطاق مقلّد</h3>
+                <p>حروف مضافة أو مبدّلة، أو كلمات مثل secure وlogin قبل اسم النطاق الحقيقي لإيهامك بالأمان.</p>
+              </div>
+            </li>
+            <li class="sign anim" style="--d:.38s">
+              <span class="sign__icon"><svg class="ico" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+              <div>
+                <h3>طلب تسجيل دخول أو رمز تحقق غير متوقع</h3>
+                <p>لا جهة موثوقة تطلب رمز التحقق (OTP) عبر رسالة أو مكالمة. ولا تشاركه مع أي شخص.</p>
+              </div>
+            </li>
+            <li class="sign anim" style="--d:.43s">
+              <span class="sign__icon"><svg class="ico" aria-hidden="true"><use href="#i-link"></use></svg></span>
+              <div>
+                <h3>رابط مختصر أو مرفق غير متوقع</h3>
+                <p>رابط قصير يخفي الوجهة، أو ملف لم تتوقعه حتى من مرسل تعرفه — قد يكون حسابه مخترقًا.</p>
+              </div>
+            </li>
+          </ul>
+
+          <aside class="url-panel anim" style="--d:.3s">
+            <div class="url-panel__head">
+              <svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg>
+              <span>تشريح رابط خيالي</span>
+              <span class="chip chip--tiny">غير قابل للضغط</span>
+            </div>
+
+            <div class="url-box" dir="ltr" aria-label="مثال رابط خيالي: https://bank.example.test.login-verify.test/ar/signin">
+              <span class="u-scheme">https://</span><span class="u-fake">bank.example.test.</span><span class="u-real">login-verify.test</span><span class="u-path">/ar/signin</span>
+            </div>
+
+            <ul class="legend">
+              <li>
+                <span class="dot dot--amber" aria-hidden="true"></span>
+                <div>
+                  <strong>بادئة مضلّلة</strong>
+                  <p>«bank.example.test» هنا نطاق فرعي، وليست هوية البنك. يمكن لأي شخص إعداده.</p>
+                </div>
+              </li>
+              <li>
+                <span class="dot dot--red" aria-hidden="true"></span>
+                <div>
+                  <strong>النطاق الأساسي</strong>
+                  <p>هو الجزء الذي يجب التحقق منه قبل أول /. في هذا المثال: «login-verify.test»، وهو نطاق مختلف تمامًا.</p>
+                </div>
+              </li>
+              <li>
+                <span class="dot dot--muted" aria-hidden="true"></span>
+                <div>
+                  <strong>المسار</strong>
+                  <p>«/ar/signin» مجرد صفحة داخل الموقع، ولا يثبت أن الجهة هي البنك.</p>
+                </div>
+              </li>
+            </ul>
+
+            <p class="url-panel__note">
+              <svg class="ico" aria-hidden="true"><use href="#i-alert"></use></svg>
+              جميع النطاقات هنا خيالية ومحمية للتوثيق (.test). لا تفتح رابطًا مشبوهًا لتفحصه.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-4" data-chapter="الوقاية" data-title="كيف تحمي نفسك؟" aria-hidden="true" inert tabindex="-1">
+      <div class="slide__inner">
+        <header class="slide-head">
+          <div class="kicker anim" style="--d:.04s"><span>04</span> الوقاية</div>
+          <h2 class="anim" style="--d:.09s">كيف تحمي نفسك؟</h2>
+          <p class="lead anim" style="--d:.14s">
+            الحماية لا تعني الشك في كل شيء، بل بناء عادات بسيطة تجعل الضغط على الرابط الخاطئ أقل احتمالًا وأقل أثرًا.
+          </p>
+        </header>
+
+        <div class="protect-grid">
+          <article class="protect-card anim" style="--d:.18s">
+            <span class="protect-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg></span>
+            <h3>تحقّق من المرسل والنطاق</h3>
+            <p>افتح الموقع بنفسك بدل الضغط على الرابط، وقارن النطاق بحرف بحرف. لا تعتمد على الشعار أو الاسم المعروض.</p>
+          </article>
+
+          <article class="protect-card anim" style="--d:.24s">
+            <span class="protect-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg></span>
+            <h3>لا تُدخل بياناتك من رابط</h3>
+            <p>كلمة المرور ورمز التحقق وبيانات البطاقة لا تُدخل إلا في تطبيق أو موقع فتحته بنفسك.</p>
+          </article>
+
+          <article class="protect-card anim" style="--d:.3s">
+            <span class="protect-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-file"></use></svg></span>
+            <h3>لا تنزّل ملفات مجهولة</h3>
+            <p>تجنّب الملفات التنفيذية أو المضغوطة التي تصل دون طلب، حتى من مرسل تعرفه. عند الشك، اسأله عبر قناة أخرى.</p>
+          </article>
+
+          <article class="protect-card protect-card--wide anim" style="--d:.36s">
+            <span class="protect-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-fingerprint"></use></svg></span>
+            <h3>فعّل المصادقة متعددة العوامل</h3>
+            <p>تطبيق مصادقة أو مفتاح أمان أقوى من الرسائل النصية. وأبقِ رموز التحقق لنفسك، ولا ترسلها لأي شخص.</p>
+          </article>
+
+          <article class="protect-card protect-card--wide anim" style="--d:.42s">
+            <span class="protect-card__icon"><svg class="ico" aria-hidden="true"><use href="#i-refresh"></use></svg></span>
+            <h3>حدّث واحتفظ بنسخة احتياطية</h3>
+            <p>التحديثات تسدّ الثغرات، والنسخة الاحتياطية تحمي ملفاتك من الفدية ومن الأعطال. ولا تُطلب التحديثات عبر رابط في رسالة.</p>
+          </article>
+        </div>
+
+        <div class="rule-banner anim" style="--d:.48s">
+          <div class="rule-banner__mark" aria-hidden="true"><svg class="ico"><use href="#i-shield-check"></use></svg></div>
+          <div class="rule-banner__text">
+            <span class="rule-banner__kicker">القاعدة الذهبية</span>
+            <h3>توقّف. تحقّق. ثم قرّر.</h3>
+            <p>تحقّق من أي طلب عبر قناة مستقلة: اتصل بالجهة برقم من موقعها الرسمي، أو افتح تطبيقها بنفسك.</p>
+          </div>
+          <div class="rule-banner__chips" aria-label="ثلاث قواعد">
+            <span>لا تضغط</span>
+            <span>لا تُدخل</span>
+            <span>لا تنزّل</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-5" data-chapter="الاستجابة" data-title="إذا ضغطت على رابط مشبوه" aria-hidden="true" inert tabindex="-1">
+      <div class="slide__inner">
+        <header class="slide-head">
+          <div class="kicker anim" style="--d:.04s"><span>05</span> الاستجابة</div>
+          <h2 class="anim" style="--d:.09s">ضغطت على الرابط؟ افعل هذا فورًا</h2>
+          <p class="lead anim" style="--d:.14s">
+            الخطأ ليس في الضغطة وحدها، بل في تجاهلها بعد ذلك. التصرف السريع يقلّل الضرر بشكل كبير.
+          </p>
+        </header>
+
+        <ol class="flow">
+          <li class="flow__step anim" style="--d:.18s">
+            <span class="flow__num">1</span>
+            <span class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg></span>
+            <h3>أغلق الصفحة</h3>
+            <p>لا تملأ أي حقل ولا تضغط أزرارها. أغلق التبويب أو التطبيق فورًا.</p>
+          </li>
+          <li class="flow__step anim" style="--d:.24s">
+            <span class="flow__num">2</span>
+            <span class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-key"></use></svg></span>
+            <h3>لا تُدخل بيانات أو رموز تحقق</h3>
+            <p>إذا أدخلت بيانات، لا تكرّر الخطأ: انتقل إلى تغيير كلمة المرور فورًا.</p>
+          </li>
+          <li class="flow__step anim" style="--d:.3s">
+            <span class="flow__num">3</span>
+            <span class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-search"></use></svg></span>
+            <h3>افحص التنزيلات والجهاز</h3>
+            <p>احذف ما لم تتوقعه، وافحص الجهاز بحماية موثوقة. راقب أي بطء أو نوافذ غريبة.</p>
+          </li>
+          <li class="flow__step anim" style="--d:.36s">
+            <span class="flow__num">4</span>
+            <span class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-lock"></use></svg></span>
+            <h3>غيّر كلمات المرور</h3>
+            <p>من جهاز موثوق، ابدأ بالبريد والبنك، وفعّل المصادقة متعددة العوامل.</p>
+          </li>
+          <li class="flow__step anim" style="--d:.42s">
+            <span class="flow__num">5</span>
+            <span class="flow__icon"><svg class="ico" aria-hidden="true"><use href="#i-phone"></use></svg></span>
+            <h3>أبلغ وتواصل</h3>
+            <p>أبلغ عن الرسالة. وإذا شاركت بيانات مالية، اتصل بالبنك فورًا وراقب العمليات.</p>
+          </li>
+        </ol>
+
+        <div class="emergency anim" style="--d:.48s">
+          <span class="emergency__icon"><svg class="ico" aria-hidden="true"><use href="#i-card"></use></svg></span>
+          <div class="emergency__text">
+            <span class="emergency__kicker">بيانات مالية أو رمز تحقق؟</span>
+            <h3>اتصل بالبنك فورًا، وأوقف البطاقة.</h3>
+            <p>لا تنتظر رسالة تأكيد. راقب العمليات، واحتفظ بلقطة شاشة للرسالة للإبلاغ.</p>
+          </div>
+          <button class="btn btn--warn" type="button" data-goto="4">
+            راجع خطوات الحماية
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--quiz" id="slide-6" data-chapter="اختبر نفسك" data-title="اختبر نفسك: أيّها مشبوه؟" aria-hidden="true" inert tabindex="-1">
+      <div class="slide__inner slide__inner--wide">
+        <header class="slide-head slide-head--row">
+          <div>
+            <div class="kicker anim" style="--d:.04s"><span>06</span> التطبيق</div>
+            <h2 class="anim" style="--d:.09s">اختبر نفسك: أيّها مشبوه؟</h2>
+            <p class="lead anim" style="--d:.14s">
+              ثلاث رسائل خيالية بالكامل. اقرأ كل واحدة، اختر تقييمك، ثم اقرأ التفسير وسبب الخطورة.
+            </p>
+          </div>
+          <div class="score-pill anim" id="quizScore" style="--d:.18s" aria-live="polite">
+            <span>نتيجتك</span>
+            <strong id="quizScoreValue">٠ / ٣</strong>
+          </div>
+        </header>
+
+        <div class="quiz anim" style="--d:.24s">
+          <div class="quiz__bar">
+            <div class="quiz__tabs" id="quizTabs" role="tablist" aria-label="الرسائل الثلاث"></div>
+            <span class="quiz__hint">
+              <svg class="ico" aria-hidden="true"><use href="#i-eye"></use></svg>
+              لا تضغط أي رابط — الأمثلة للقراءة فقط
+            </span>
+          </div>
+          <div class="quiz__stage" id="quizStage"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide slide--closing" id="slide-7" data-chapter="الخلاصة" data-title="توقف، تحقق، ثم قرر" aria-hidden="true" inert tabindex="-1">
+      <div class="slide__inner">
+        <div class="closing">
+          <div class="closing__mark anim" style="--d:.04s" aria-hidden="true">”</div>
+          <div class="kicker anim" style="--d:.09s"><span>07</span> الخلاصة</div>
+          <h2 class="closing__line anim" style="--d:.14s">
+            لا تثق بكل رابط يصلك؛<br>
+            <span>توقّف، تحقّق، ثم قرّر</span>
+          </h2>
+          <p class="closing__lead anim" style="--d:.2s">
+            الوعي ليس الخوف من كل رابط، بل القدرة على التمييز قبل الضغط. شارك هذه القاعدة مع من تحب.
+          </p>
+
+          <div class="closing__steps anim" style="--d:.26s">
+            <div class="closing__step">
+              <span class="closing__num">1</span>
+              <h3>توقّف</h3>
+              <p>لا تضغط تحت ضغط الخوف أو الإغراء.</p>
+            </div>
+            <div class="closing__step">
+              <span class="closing__num">2</span>
+              <h3>تحقّق</h3>
+              <p>من المرسل والنطاق عبر قناة مستقلة.</p>
+            </div>
+            <div class="closing__step">
+              <span class="closing__num">3</span>
+              <h3>قرّر</h3>
+              <p>بوعي، لا باستعجال. ولا تشارك بياناتك.</p>
+            </div>
+          </div>
+
+          <div class="closing__actions anim" style="--d:.32s">
+            <button class="btn btn--primary" type="button" data-replay>
+              <svg class="ico" aria-hidden="true"><use href="#i-refresh"></use></svg>
+              أعد العرض
+            </button>
+            <button class="btn btn--ghost" type="button" data-quiz>
+              <svg class="ico" aria-hidden="true"><use href="#i-grid"></use></svg>
+              اختبر نفسك
+            </button>
+            <button class="btn btn--ghost" type="button" id="fullscreenBtn2">
+              <svg class="ico" aria-hidden="true"><use href="#i-expand"></use></svg>
+              ملء الشاشة
+            </button>
+          </div>
+
+          <p class="closing__credit anim" style="--d:.38s">إعداد: <strong>مروة خليل</strong></p>
+
+          <div class="closing__disclaimer anim" style="--d:.44s">
+            <svg class="ico" aria-hidden="true"><use href="#i-shield-check"></use></svg>
+            <p><strong>تذكير:</strong> هذا العرض محاكاة توعوية. لا يفحص جهازك، ولا يجمع بياناتك، ولا يحتوي روابط حقيقية. جميع الأمثلة والنطاقات خيالية.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="progress-rail" aria-hidden="true"><span id="progressFill"></span></div>
+
+  <div class="scroll-cue" id="scrollCue" aria-hidden="true">
+    <span>اسحب للأسفل لرؤية المزيد</span>
+    <svg class="ico" aria-hidden="true"><use href="#i-arrow-down"></use></svg>
+  </div>
+
+  <nav class="navbar" id="navbar" aria-label="التنقل بين شرائح العرض">
+    <button class="navbtn" id="prevBtn" type="button" aria-label="الشريحة السابقة">
+      <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+      <span>السابق</span>
+    </button>
+
+    <div class="navbar__center">
+      <button class="quiznav" id="quizBtn" type="button">
+        <svg class="ico" aria-hidden="true"><use href="#i-grid"></use></svg>
+        <span>اختبر نفسك</span>
+      </button>
+      <span class="counter" id="slideCounter" aria-live="polite">
+        <strong id="currentNum">1</strong>
+        <span aria-hidden="true">/</span>
+        <span class="counter__total">8</span>
+      </span>
+    </div>
+
+    <button class="navbtn navbtn--next" id="nextBtn" type="button" aria-label="الشريحة التالية">
+      <span>التالي</span>
+      <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+    </button>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <div class="intro" id="intro" role="dialog" aria-modal="true" aria-label="محاكاة تمهيدية توعوية" tabindex="-1" data-phase="dashboard">
+    <div class="intro__void" aria-hidden="true"></div>
+    <div class="intro__glow" aria-hidden="true"></div>
+    <div class="intro__grid" aria-hidden="true"></div>
+    <div class="intro__scan" aria-hidden="true"></div>
+    <div class="intro__noise" aria-hidden="true"></div>
+    <div class="intro__sweep" aria-hidden="true"></div>
+    <div class="intro__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="intro__flash" id="introFlash" aria-hidden="true"></div>
+    <div class="intro__blackout" id="introBlackout" aria-hidden="true"></div>
+
+    <div class="intro__stage" id="introStage" data-shake="0">
+      <div class="dash" id="dash">
+        <header class="dash__chrome">
+          <div class="dash__brand">
+            <span class="dash__logo" aria-hidden="true">
+              <svg class="ico"><use href="#i-shield"></use></svg>
+            </span>
+            <b>SENTINEL</b>
+            <span class="dash__slash">/</span>
+            <span>مركز مراقبة الجلسة</span>
+          </div>
+          <div class="dash__chrome-meta">
+            <span class="dash__live"><i aria-hidden="true"></i> جلسة محاكاة</span>
+            <span class="dash__clock" id="introClock" dir="ltr">00:00:00</span>
+            <span class="dash__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+        </header>
+
+        <div class="dash__body">
+          <aside class="dash__side">
+            <div class="dash__side-head">التحليل <span>LIVE</span></div>
+            <div class="dash__ring" id="introRing" style="--p:0;--ring:#4fd1b8">
+              <div class="dash__ring-inner">
+                <b id="introPct">0</b><span>%</span>
+                <small>نسبة التحليل</small>
+              </div>
+            </div>
+            <div class="dash__stats">
+              <div><span>الروابط المفحوصة</span><b id="introLinks">0</b></div>
+              <div><span>مصادر الاتصال</span><b id="introSources">3</b></div>
+              <div><span>محاولات الوصول</span><b id="introAttempts">0</b></div>
+            </div>
+            <div class="dash__depth">
+              <div><span>عمق الفحص</span><b id="introDepthText">0%</b></div>
+              <i><b id="introDepth"></b></i>
+            </div>
+            <div class="dash__side-note"><i aria-hidden="true"></i> اتصال محلي — بلا جمع بيانات</div>
+          </aside>
+
+          <main class="dash__main">
+            <div class="dash__main-head">
+              <div>
+                <span class="dash__eyebrow">SECURITY TRACE</span>
+                <h2>سجل الأحداث</h2>
+              </div>
+              <div class="dash__status"><span id="introStatus">INITIALIZING</span><i aria-hidden="true"></i></div>
+            </div>
+            <div class="dash__logs" id="introLog" aria-hidden="true"></div>
+            <div class="dash__message">
+              <div class="intro__messages" id="introMessages" aria-live="assertive" aria-atomic="true">
+                <div class="intro__echo" id="introEcho" aria-hidden="true"></div>
+                <div class="intro__msg" id="introMsg"></div>
+              </div>
+            </div>
+          </main>
+
+          <aside class="dash__rail">
+            <div class="dash__rail-head">مستوى التهديد</div>
+            <div class="dash__threat" id="introThreat"><span>منخفض</span><b>LOW</b></div>
+            <div class="dash__threat-meter"><i id="introThreatBar"></i></div>
+            <div class="dash__rail-list">
+              <div><span>حالة الاتصال</span><b>مشفّر</b></div>
+              <div><span>الموارد المحمية</span><b id="introProtected">12</b></div>
+              <div><span>الملف الصادر</span><b id="introOutbound">0 KB</b></div>
+              <div><span>النشاط</span><b id="introActivity">طبيعي</b></div>
+            </div>
+            <div class="dash__rail-mark" aria-hidden="true">
+              <svg viewBox="0 0 240 220" class="warning-triangle warning-triangle--rail">
+                <path d="M120 12 228 202H12Z" fill="url(#triFill)" stroke="url(#triEdge)" stroke-width="5"></path>
+                <path d="M112 82h16l-3 62h-10Z" fill="#fff"></path>
+                <circle cx="120" cy="166" r="9" fill="#fff"></circle>
+              </svg>
+              <span>SIMULATION</span>
+            </div>
+            <div class="dash__rail-note">محاكاة توعوية<br><span>لا فحص حقيقي</span></div>
+          </aside>
+        </div>
+
+        <footer class="dash__foot">
+          <span><i class="dash__dot" aria-hidden="true"></i> SIMULATION // NO REAL BREACH</span>
+          <span>لا يتم الوصول إلى جهازك أو بياناتك</span>
+          <span class="dash__code" dir="ltr">SIM-2026 / 0x7F</span>
+        </footer>
+      </div>
+
+      <div class="intro__triangle" id="introTriangle" aria-hidden="true">
+        <div class="triangle__halo"></div>
+        <svg class="warning-triangle" viewBox="0 0 240 220" role="img" aria-label="مثلث تحذير أحمر">
+          <defs>
+            <linearGradient id="triFill" x1="0" y1="0" x2="0.35" y2="1">
+              <stop offset="0" stop-color="#ff4254"></stop>
+              <stop offset="0.45" stop-color="#d3132c"></stop>
+              <stop offset="1" stop-color="#6d0716"></stop>
+            </linearGradient>
+            <linearGradient id="triEdge" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffd3d8"></stop>
+              <stop offset="0.35" stop-color="#ff5568"></stop>
+              <stop offset="1" stop-color="#9b0d20"></stop>
+            </linearGradient>
+            <filter id="triGlow" x="-70%" y="-70%" width="240%" height="240%">
+              <feGaussianBlur stdDeviation="9" result="blur"></feGaussianBlur>
+              <feMerge>
+                <feMergeNode in="blur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+              </feMerge>
+            </filter>
+            <filter id="triShadow" x="-40%" y="-30%" width="180%" height="190%">
+              <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000" flood-opacity="0.85"></feDropShadow>
+            </filter>
+          </defs>
+          <path class="tri__aura" d="M120 8 232 208H8Z" fill="#e11d2f" filter="url(#triGlow)" opacity="0.55"></path>
+          <path class="tri__body" d="M120 12 228 202H12Z" fill="url(#triFill)" stroke="url(#triEdge)" stroke-width="3" stroke-linejoin="round" filter="url(#triShadow)"></path>
+          <path class="tri__inner" d="M120 58 190 182H50Z" fill="#0a0204" opacity="0.82"></path>
+          <path class="tri__shine" d="M120 12 228 202H12Z" fill="none" stroke="rgba(255,255,255,0.28)" stroke-width="1"></path>
+          <g class="tri__mark">
+            <path d="M112 82h16l-3 62h-10Z" fill="#ffffff"></path>
+            <circle cx="120" cy="166" r="9" fill="#ffffff"></circle>
+          </g>
+        </svg>
+        <div class="triangle__reflection" aria-hidden="true"></div>
+        <div class="triangle__scan" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <div class="intro__alert" id="introAlert" hidden>
+      <div class="alertwin" role="alert" aria-live="assertive">
+        <div class="alertwin__chrome">
+          <span class="alertwin__dots"><i></i><i></i><i></i></span>
+          <span>SECURITY ALERT // 0xDEAD</span>
+          <span class="alertwin__live"><i></i> LIVE</span>
+        </div>
+        <div class="alertwin__body">
+          <div class="alertwin__icon" aria-hidden="true">
+            <svg viewBox="0 0 240 220" class="warning-triangle warning-triangle--small">
+              <path d="M120 12 228 202H12Z" fill="url(#triFill)" stroke="url(#triEdge)" stroke-width="4"></path>
+              <path d="M112 82h16l-3 62h-10Z" fill="#fff"></path>
+              <circle cx="120" cy="166" r="9" fill="#fff"></circle>
+            </svg>
+          </div>
+          <div>
+            <span class="alertwin__kicker">CRITICAL THREAT DETECTED</span>
+            <h2>تم اكتشاف تهديد أمني!</h2>
+            <p>محاولة وصول غير مصرّح بها إلى موارد محمية. تم تعليق الجلسة مؤقتًا.</p>
+          </div>
+        </div>
+        <div class="alertwin__foot">
+          <span>THREAT LEVEL: <b>CRITICAL</b></span>
+          <span>ACTION REQUIRED</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro__breach" id="introBreach" role="alert" aria-live="assertive" aria-atomic="true" hidden>
+      <div class="breach__noise" aria-hidden="true"></div>
+      <p class="breach__kicker">CRITICAL FAILURE // 0x000000</p>
+      <h2 class="breach__title" data-text="تم اختراق جهازك!">تم اختراق جهازك!</h2>
+      <p class="breach__sub">تم تجاوز طبقات الحماية — <span>محاكاة</span></p>
+      <div class="breach__bar" aria-hidden="true"><span></span></div>
+    </div>
+
+    <div class="intro__countdown" id="introCountdown" hidden>
+      <p class="countdown__title">تم اختراق جهازك!</p>
+      <div class="countdown">
+        <div class="countdown__ring" id="countdownRing" style="--p:100">
+          <span id="countdownNum">5</span>
+        </div>
+        <div class="countdown__meta">
+          <span>COUNTDOWN</span>
+          <p>لا تُغلق النافذة…</p>
+        </div>
+      </div>
+      <div class="countdown__bar" aria-hidden="true"><span id="countdownBar"></span></div>
+    </div>
+
+    <div class="intro__controls">
+      <button class="intro__motion" id="reduceMotion" type="button" aria-pressed="false" title="تقليل الحركة والوميض">
+        <svg class="ico" aria-hidden="true"><use href="#i-spark"></use></svg>
+        <span>تقليل الحركة</span>
+      </button>
+      <button class="intro__sound" id="introSound" type="button" aria-pressed="true">
+        <svg class="ico" aria-hidden="true"><use href="#i-volume"></use></svg>
+        <span>كتم الصوت</span>
+      </button>
+      <button class="intro__skip" id="skipIntro" type="button">
+        <span>تخطي المقدمة</span>
+        <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+      </button>
+    </div>
+
+    <div class="intro__reveal" id="introReveal" hidden>
+      <div class="reveal">
+        <div class="reveal__badge">
+          <svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg>
+          انتهت المحاكاة
+        </div>
+        <p class="reveal__shock">لحظة! هل شعرت بالخوف؟</p>
+        <h2 class="reveal__title" id="revealTitle" tabindex="-1">تخيّل أن هذا يحدث لك فعلًا...</h2>
+        <p class="reveal__sub">بسبب رابط واحد فتحته دون تفكير!</p>
+
+        <div class="reveal__note">
+          <svg class="ico" aria-hidden="true"><use href="#i-shield-check"></use></svg>
+          <div>
+            <strong>اطمئن، هذه محاكاة توعوية فقط.</strong>
+            <p>لم يتم اختراق جهازك أو الوصول إلى بياناتك، ولم يُجرَ أي فحص أو جمع معلومات. كل ما رأيته كان مؤثرات بصرية وصوتية محلية.</p>
+          </div>
+        </div>
+
+        <p class="reveal__bridge">
+          الخوف الذي شعرت به للحظة هو ما يستغله المحتالون. الآن، لنحوّله إلى وعي.
+        </p>
+
+        <div class="reveal__actions">
+          <button class="btn btn--primary" id="startShow" type="button">
+            ابدأ التجربة
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+          </button>
+          <button class="btn btn--ghost" id="replayIntro" type="button">
+            <svg class="ico" aria-hidden="true"><use href="#i-refresh"></use></svg>
+            أعد المحاكاة
+          </button>
+          <button class="linkbtn" id="revealQuiz" type="button">
+            <svg class="ico" aria-hidden="true"><use href="#i-grid"></use></svg>
+            اذهب إلى الاختبار
+          </button>
+        </div>
+
+        <div class="reveal__meta">
+          <span><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg> نحو 24 ثانية</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-volume"></use></svg> الصوت تلقائي حسب المتصفح</span>
+          <span><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg> لا بيانات</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <dialog class="help" id="helpDialog" aria-labelledby="helpTitle">
+    <div class="help__head">
+      <div>
+        <span class="kicker"><span>؟</span> دليل سريع</span>
+        <h2 id="helpTitle">كيف تستخدم العرض؟</h2>
+      </div>
+      <button class="iconbtn" id="closeHelp" type="button" aria-label="إغلاق الدليل">
+        <svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg>
+      </button>
+    </div>
+
+    <p class="help__lead">صُمّم العرض للبروجكتر والحاسوب والجوال. الصوت يبدأ تلقائيًا إن سمح المتصفح، وإلا يبدأ مع أول تفاعل.</p>
+
+    <div class="help__keys">
+      <div><kbd>←</kbd><span>الشريحة التالية</span></div>
+      <div><kbd>→</kbd><span>الشريحة السابقة</span></div>
+      <div><kbd>Space</kbd><span>التالي</span></div>
+      <div><kbd>F</kbd><span>ملء الشاشة</span></div>
+      <div><kbd>M</kbd><span>تشغيل / كتم الصوت</span></div>
+      <div><kbd>R</kbd><span>إعادة العرض</span></div>
+      <div><kbd>؟</kbd><span>هذا الدليل</span></div>
+      <div><kbd>Esc</kbd><span>إغلاق النوافذ</span></div>
+    </div>
+
+    <div class="help__note">
+      <svg class="ico" aria-hidden="true"><use href="#i-shield-check"></use></svg>
+      <p><strong>خصوصية كاملة:</strong> لا يطلب الموقع أي بيانات، ولا يفحص جهازك، ولا يتصل بخدمات خارجية. جميع الأمثلة والروابط خيالية.</p>
+    </div>
+
+    <button class="btn btn--primary help__close" id="closeHelp2" type="button">فهمت، لنبدأ</button>
+  </dialog>
+
+  <noscript>
+    <div class="noscript">يحتاج هذا العرض إلى JavaScript للتنقل والتفاعل. يرجى تفعيله ثم إعادة تحميل الصفحة.</div>
+  </noscript>
+
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v6c0 4.4 3 8.2 7.5 9.5 4.5-1.3 7.5-5.1 7.5-9.5V6L12 3Z"/></symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M12 3 4.5 6v6c0 4.4 3 8.2 7.5 9.5 4.5-1.3 7.5-5.1 7.5-9.5V6L12 3Z"/><path d="m8.4 12 2.5 2.5 4.7-5"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.2 13.8a4 4 0 0 0 5.7 0l2.6-2.6a4 4 0 0 0-5.7-5.7l-1.5 1.5"/><path d="M13.8 10.2a4 4 0 0 0-5.7 0l-2.6 2.6a4 4 0 0 0 5.7 5.7l1.5-1.5"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.8 20h18.4L12 4Z"/><path d="M12 9v5"/><path d="M12 17.2v.1"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10" width="15" height="10" rx="2.5"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"/><path d="m11 11 8 8"/><path d="m16 16 2-2"/><path d="m18.5 18.5 2-2"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11"/><path d="m7.5 10 4.5 4.5L16.5 10"/><path d="M4.5 17v2.5A1.5 1.5 0 0 0 6 21h12a1.5 1.5 0 0 0 1.5-1.5V17"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.4 3.8 5.5 3.8 9S14.5 18.6 12 21c-2.5-2.4-3.8-5.5-3.8-9S9.5 5.4 12 3Z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12"/><path d="m18 6-12 12"/></symbol>
+      <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 6-6 6 6 6"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></symbol>
+      <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 9a4.5 4.5 0 0 1 0 6"/><path d="M18.5 6.5a8 8 0 0 1 0 11"/></symbol>
+      <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="m16 9 5 6"/><path d="m21 9-5 6"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5"/><path d="M15 4h5v5"/><path d="M9 20H4v-5"/><path d="M15 20h5v-5"/></symbol>
+      <symbol id="i-compress" viewBox="0 0 24 24"><path d="M4 9h5V4"/><path d="M20 9h-5V4"/><path d="M4 15h5v5"/><path d="M20 15h-5v5"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 6.7"/><path d="M20 4v7h-7"/></symbol>
+      <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.3a2.6 2.6 0 0 1 5.1.7c0 1.8-2.6 2-2.6 3.6"/><path d="M12 17.2v.1"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.5l3.5 2"/></symbol>
+      <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5"/><path d="M5 10v8"/><path d="M9.5 10v8"/><path d="M14.5 10v8"/><path d="M19 10v8"/><path d="M3 21h18"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 4.5-2.2 1.6a13 13 0 0 0 6.1 6.1l1.6-2.2L21 15v3a3 3 0 0 1-3 3A15 15 0 0 1 3 6a3 3 0 0 1 3-3Z"/></symbol>
+      <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="i-cursor" viewBox="0 0 24 24"><path d="m5 3 6.5 18 2.3-7.2L21 11.5 5 3Z"/><path d="m13.5 14.5 5 5"/></symbol>
+      <symbol id="i-fingerprint" viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 1 8 8v2"/><path d="M12 7a5 5 0 0 1 5 5v4"/><path d="M12 10a2 2 0 0 1 2 2v6"/><path d="M9 20v-8a3 3 0 0 1 3-3"/><path d="M6 18v-6a6 6 0 0 1 6-6"/><path d="M4 12V9a8 8 0 0 1 4-6.9"/><path d="M20 17v2"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6"/></symbol>
+      <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 9.5h19"/><path d="M6.5 15h4"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></symbol>
+      <symbol id="i-user-x" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3.5 21a6.5 6.5 0 0 1 13 0"/><path d="m17 9 5 5"/><path d="m22 9-5 5"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4"/><path d="M12 17v4"/><path d="M3 12h4"/><path d="M17 12h4"/><path d="m5.6 5.6 2.8 2.8"/><path d="m15.6 15.6 2.8 2.8"/><path d="m18.4 5.6-2.8 2.8"/><path d="m8.4 15.6-2.8 2.8"/></symbol>
+      <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9 5C5.5 6.5 4 9 4 12v7h7v-7H7c0-2 .8-3.4 2.5-4.5L9 5Z"/><path d="M19 5c-3.5 1.5-5 4-5 7v7h7v-7h-4c0-2 .8-3.4 2.5-4.5L19 5Z"/></symbol>
+    </defs>
+  </svg>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
